@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\Card;
+use Filament\Tables\Columns\TextColumn;
 class TagResource extends Resource
 {
     protected static ?string $model = Tag::class;
@@ -43,7 +44,9 @@ class TagResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('id')->sortable(),
+                TextColumn::make('name')->words(15)->sortable()->searchable(),
+                TextColumn::make('slug')->words(15)->sortable(),
             ])
             ->filters([
                 //

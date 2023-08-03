@@ -45,7 +45,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
-                TextColumn::make('name')->words(15)->sortable(),
+                TextColumn::make('name')->words(15)->sortable()->searchable(),
                 TextColumn::make('slug')->words(15)->sortable(),
             ])
             ->filters([
